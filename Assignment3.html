@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle with HTML and CSS</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        #container {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        #toggleButton {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            padding: 10px;
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #toggleButton:checked + label {
+            background-color: darkred;
+        }
+
+        #toggleButton:checked ~ #container {
+            background-color: lightcoral;
+        }
+
+        #toggleButton:checked ~ #container::before {
+            content: "Changed!";
+        }
+
+        #container::before {
+            content: "Hello!";
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <input type="checkbox" id="toggleButton">
+        <label for="toggleButton">Click Me!</label>
+        <div id="container"></div>
+    </div>
+
+</body>
+</html>
